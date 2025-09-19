@@ -37,6 +37,7 @@
 #include "CommandDistributor.h"
 #include "TrackManager.h"
 #include "DCCTimer.h"
+#include "Utils.h"
 
 // This module is responsible for converting API calls into
 // messages to be sent to the waveform generator.
@@ -61,7 +62,7 @@ FSH* DCC::shieldName=NULL;
 byte DCC::globalSpeedsteps=128;
 
 void DCC::begin() {
-  StringFormatter::send(&USB_SERIAL,F("<iDCC-EX V-%S / %S / %S G-%S>\n"), F(VERSION), F(ARDUINO_TYPE), shieldName, F(GITHUB_SHA));
+  StringFormatter::send(&USB_SERIAL,F("<iDCC-EX V-%S / %S / %S G-%S %S>\n"), F(VERSION), F(ARDUINO_TYPE), shieldName, F(GITHUB_SHA), getId());
 #ifndef DISABLE_EEPROM
   // Load stuff from EEprom
   (void)EEPROM; // tell compiler not to warn this is unused

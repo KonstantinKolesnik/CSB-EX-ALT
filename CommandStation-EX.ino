@@ -77,6 +77,19 @@ bool DCCDecoder::active = false;
 
 void setup()
 {
+    // Serial.begin(115200);
+  // delay(1000);
+  // uint32_t flashSize = ESP.getFlashChipSize();
+  // Serial.print("Flash Chip Size: ");
+  // Serial.print(flashSize);
+  // Serial.println(" bytes");
+  // Serial.print("Flash Chip Size: ");
+  // Serial.print(flashSize / 1024 / 1024);
+  // Serial.println(" MB");
+  // Serial.printf("PSRAM size: %d\n", ESP.getPsramSize());
+  // Serial.printf("Free heap: %u\n", esp_get_free_heap_size());
+  // return;
+
   // The main sketch has responsibilities during setup()
 
   // Responsibility 1: Start the usb connection for diagnostics
