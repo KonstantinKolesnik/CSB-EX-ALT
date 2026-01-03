@@ -3,7 +3,12 @@
 
 #include "StringFormatter.h"
 
-#define VERSION "5.4.15"
+#define VERSION "5.4.18"
+// 5.4.18 - Bugfix: EXRAIL failed TURNTABLE create commands (I2C off) can crash CS
+//        - Bugfix: EXRAIL be extra careful not to deref nullptr
+// 5.4.17 - Replace the SC power status with something better
+// 5.4.16 - Update SensorCAM from version 305 to 308
+//          Bugfix: ESP32 WIFI AP mode was not always selected when wanted
 // 5.4.15 - Bugfix: Speedtable overflow fix
 //        - Remove unused EX-CommandStation-installer.exe
 // 5.4.14 - Bugfix: Keep power status of track when doing join/unjoin, new keep power option for setTrackMode()
