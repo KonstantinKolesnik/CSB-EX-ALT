@@ -355,17 +355,17 @@ void WifiESP::loop() {
     if (server->hasClient()) {
       WiFiClient client;
       while (client = server->available()) {
-	for (clientId=0; clientId<clients.size(); clientId++){
-	  if (clients[clientId].recycle(client)) {
-	    DIAG(F("Recycle client %d %s:%d"), clientId, client.remoteIP().toString().c_str(),client.remotePort());
-	    break;
-	  }
-	}
-	if (clientId>=clients.size()) {
-	  NetworkClient nc(client);
-	  clients.push_back(nc);
-	  DIAG(F("New client %d, %s:%d"), clientId, client.remoteIP().toString().c_str(),client.remotePort());
-	}
+        for (clientId=0; clientId<clients.size(); clientId++){
+          if (clients[clientId].recycle(client)) {
+            DIAG(F("Recycle client %d %s:%d"), clientId, client.remoteIP().toString().c_str(),client.remotePort());
+            break;
+          }
+        }
+        if (clientId>=clients.size()) {
+          NetworkClient nc(client);
+          clients.push_back(nc);
+          DIAG(F("New client %d, %s:%d"), clientId, client.remoteIP().toString().c_str(),client.remotePort());
+        }
       }
     }
     // loop over all connected clients
