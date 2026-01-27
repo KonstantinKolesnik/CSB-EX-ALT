@@ -107,7 +107,7 @@ void setup()
 #endif
 
   // Initialise HAL layer before reading EEprom or setting up MotorDrivers 
-  // IODevice::begin();
+  IODevice::begin();
 
   // As the setup of a motor shield may require a read of the current sense input from the ADC,
   // let's make sure to initialise the ADCee class!
@@ -143,7 +143,7 @@ void setup()
   DCC::begin();
 
   // Start RMFT aka EX-RAIL (ignored if no automnation)
-  // RMFT::begin();
+  RMFT::begin();
 
 #ifdef ARDUINO_ARCH_ESP32
 #ifdef BOOSTER_INPUT
@@ -213,7 +213,7 @@ void loop()
   EthernetInterface::loop();
 #endif
 
-//   RMFT::loop();  // ignored if no automation
+  RMFT::loop();  // ignored if no automation
 
   #if defined(LCN_SERIAL)
   LCN::loop();
@@ -223,7 +223,7 @@ void loop()
   DisplayInterface::loop();
 
   // Handle/update IO devices.
-  // IODevice::loop();
+  IODevice::loop();
 
   Sensor::checkAll(); // Update and print changes
 
