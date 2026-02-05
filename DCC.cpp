@@ -62,7 +62,7 @@ FSH* DCC::shieldName=NULL;
 byte DCC::globalSpeedsteps=128;
 
 void DCC::begin() {
-  StringFormatter::send(&USB_SERIAL,F("<iDCC-EX V-%S / %S / %S G-%S %S>\n"), F(VERSION), F(ARDUINO_TYPE), shieldName, F(GITHUB_SHA), getId());
+  StringFormatter::send(&USB_SERIAL,F("<iDCC-EX V-%S / %S / %S G-%S %S>\n"), F(VERSION), F(ARDUINO_TYPE), shieldName, F(GITHUB_SHA), getChipId());
 #ifndef DISABLE_EEPROM
   // Load stuff from EEprom
   (void)EEPROM; // tell compiler not to warn this is unused

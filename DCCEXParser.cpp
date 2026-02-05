@@ -662,7 +662,7 @@ void DCCEXParser::parseOne(Print *stream, byte *com, RingStream * ringStream)
         return;
 
     case 's': // STATUS <s>
-        StringFormatter::send(stream, F("<iDCC-EX V-%S / %S / %S G-%S %S>\n"), F(VERSION), F(ARDUINO_TYPE), DCC::getMotorShieldName(), F(GITHUB_SHA), getId());
+        StringFormatter::send(stream, F("<iDCC-EX V-%S / %S / %S G-%S %S>\n"), F(VERSION), F(ARDUINO_TYPE), DCC::getMotorShieldName(), F(GITHUB_SHA), getChipId());
         CommandDistributor::broadcastPower(); // <s> is the only "get power status" command we have
         Turnout::printAll(stream); //send all Turnout states
         Sensor::printAll(stream);  //send all Sensor  states
